@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        input[type="number"], textarea {
+            width: calc(100% - 24px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px;
+            outline: none;
+        }
+
+        input[type="number"]:focus {
+            border-color: #007bff;
+        }
+
+        button {
+            width: 60px;
+            height: 40px;
+            margin: 5px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        textarea {
+            resize: none;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculator</h1>
+        <label for="number1">Enter Number 1</label><br>
+        <input type="number" id="number1" placeholder="Enter number"><br>
+        <label for="number2">Enter Number 2</label><br>
+        <input type="number" id="number2" placeholder="Enter number"><br>
+        <button onclick="add()">+</button>
+        <button onclick="sub()">-</button>
+        <button onclick="mul()">*</button>
+        <button onclick="divide()">/</button><br>
+        <textarea id="Output" readonly></textarea>
+    </div>
+
+    <script>
+        function add() {
+            let number1 = Number(document.getElementById('number1').value);
+            let number2 = Number(document.getElementById('number2').value);
+            let result = number1 + number2;
+            document.getElementById('Output').value = result;
+        }
+
+        function sub() {
+            let number1 = Number(document.getElementById('number1').value);
+            let number2 = Number(document.getElementById('number2').value);
+            let result = number1 - number2;
+            document.getElementById('Output').value = result;
+        }
+
+        function mul() {
+            let number1 = Number(document.getElementById('number1').value);
+            let number2 = Number(document.getElementById('number2').value);
+            let result = number1 * number2;
+            document.getElementById('Output').value = result;
+        }
+
+        function divide() {
+            let number1 = Number(document.getElementById('number1').value);
+            let number2 = Number(document.getElementById('number2').value);
+            if (number2 === 0) {
+                alert('Cannot divide by zero');
+                document.getElementById('Output').value = '';
+            } else {
+                let result = number1 / number2;
+                document.getElementById('Output').value = result;
+            }
+        }
+    </script>
+</body>
+</html>
